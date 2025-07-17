@@ -47,10 +47,11 @@ jobs:
       with:
        image-ref: ${{ env.IMAGE_NAME }}:latest
        format: 'table'
-       exit-code: '1'  # décommente si tu veux échouer le job si vulnérabilités
+       exit-code: '1'  # décommente si tu veux échouer le job en cas de vulnérabilités
        ignore-unfixed: true
        vuln-type: 'os,library'
        severity: 'HIGH,CRITICAL'
+
 
 
 
