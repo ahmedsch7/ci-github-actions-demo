@@ -1,6 +1,18 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  IMAGE_NAME: ahmedsch7/ci-demo  # <- remplace bien par ton vrai nom
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
     - name: 🔄 Cloner le code
       uses: actions/checkout@v3
