@@ -1,18 +1,6 @@
-name: CI/CD Pipeline
-
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-env:
-  IMAGE_NAME: ahmedsch7/ci-demo  # <- remplace bien par ton vrai nom
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - name: 🔄 Cloner le code
       uses: actions/checkout@v3
@@ -25,6 +13,12 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Set up JDK 21
+      uses: actions/setup-java@v3
+      with:
+        distribution: temurin
+        java-version: '21'
 
     - name: 🔧 Rendre mvnw exécutable
       run: chmod +x mvnw
