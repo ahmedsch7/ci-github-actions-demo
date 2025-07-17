@@ -50,6 +50,5 @@ jobs:
       vuln-type: 'os,library'
       severity: 'HIGH,CRITICAL'
 
-
     - name: 📦 Push vers Docker Hub
       run: docker push $IMAGE_NAME:latest
