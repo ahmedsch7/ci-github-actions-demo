@@ -46,10 +46,11 @@ jobs:
       with:
         image-ref: ${{ env.IMAGE_NAME }}:latest
         format: 'table'
-        # exit-code: '1'  # ligne optionnelle si tu ne veux pas échouer le job en cas de vulnérabilités
+        # exit-code: '1'  # décommente cette ligne si tu veux que le job échoue en cas de vulnérabilités
         ignore-unfixed: true
         vuln-type: 'os,library'
         severity: 'HIGH,CRITICAL'
+
 
     - name: 📦 Push vers Docker Hub
       run: docker push $IMAGE_NAME:latest
