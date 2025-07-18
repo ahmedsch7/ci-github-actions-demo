@@ -5,9 +5,9 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
+    
 env:
-  IMAGE_NAME: ahmedsch7/ci-demo  # <- remplace bien par ton vrai nom
+  IMAGE_NAME: ahmedschheider/ci-demo
 
 jobs:
   build:
