@@ -56,13 +56,13 @@ jobs:
       - name: 📦 Push vers Docker Hub
         run: docker push $IMAGE_NAME:latest
 
-  deploy:
+      deploy:
   runs-on: ubuntu-latest
   steps:
     - name: SSH Deploy
       uses: appleboy/ssh-action@v0.1.7
       with:
-        host: ${{ secrets.VM_IP }}         # 192.168.0.9 dans ton cas
+        host: ${{ secrets.VM_IP }}
         username: ahmed
         key: ${{ secrets.VM_SSH_KEY }}
         script: |
