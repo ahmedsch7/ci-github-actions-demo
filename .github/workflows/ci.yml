@@ -29,6 +29,9 @@ jobs:
     - name: 🧪 Build du projet avec Maven
       run: ./mvnw clean package -DskipTests
 
+    - name: ✅ Vérifier que target/app.jar existe
+      run: ls -l target/app.jar
+
     - name: ⚙️ Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
