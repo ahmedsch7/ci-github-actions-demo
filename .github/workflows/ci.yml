@@ -57,3 +57,24 @@ jobs:
 
     - name: 📦 Push vers Docker Hub
       run: docker push $IMAGE_NAME:latest
+    - name: Deploy on local VM
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH Deploy to VM
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.VM_IP }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: |
+            cd /home/ubuntu/app
+            git pull
+            ./deploy.sh
+
